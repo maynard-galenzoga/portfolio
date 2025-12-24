@@ -1,0 +1,607 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #f8fafc;
+    color: #1e293b;
+    scroll-behavior: smooth; 
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* Default width for Hero/Projects/Contact */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* New Wider Container for the About Section */
+.container-wider {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* ==================================
+   NAVBAR & DYNAMIC COLOR SWITCHING
+   ================================== */
+.navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.8rem 0;
+    z-index: 1000;
+    background: transparent !important;   
+    transition: none;                     
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* Default state (for dark backgrounds) */
+.navbar .logo,
+.navbar .nav-links a {
+    color: white; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a {
+    margin-left: 2.5rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* JS Classes for Dynamic Color Switching */
+.dark-text .logo,
+.dark-text .nav-links a {
+    color: #1e293b !important; /* Dark color for light backgrounds */
+}
+
+.light-text .logo,
+.light-text .nav-links a {
+    color: white !important; /* White color for dark backgrounds */
+}
+
+/* ==================================
+   SECTION GENERALS & HERO
+   ================================== */
+.hero,
+.section,
+.contact-footer {
+    scroll-margin-top: 100px; 
+}
+
+/* Hero & Contact styles */
+.hero,
+.contact-footer {
+    background: #111827;           
+    color: white;
+    text-align: center; 
+    padding: 180px 20px 120px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+.section { padding: 120px 0; }
+.bg-light { 
+    background:#1e293b ; /* A very light, cool gray */
+    color: ; 
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    color: #eef2f6;
+}
+
+/* Hero Content */
+.hero-content { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 2rem; 
+}
+
+.hero-text-content {
+    text-align: center; 
+}
+
+.hero-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid rgba(255,255,255,0.2);
+    margin-bottom: 0; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    flex-shrink: 0; 
+}
+
+.hero h1 { font-size: 3.8rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.5rem; margin-bottom: 3rem; opacity: 0.9; }
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Primary Button Style (used in Hero) */
+.btn-primary {
+    background: #0d9488;
+    color: white;
+    padding: 14px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s;
+}
+.btn-primary:hover { background: #0a6b5e; }
+
+/* Secondary Button Style (used in Hero) */
+.btn-secondary {
+    border: 2px solid white;
+    color: white;
+    padding: 12px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s, color 0.3s;
+}
+.btn-secondary:hover {
+    background: white;
+    color: #111827;
+}
+
+/* ==================================
+   PROJECTS SECTION (DETAIL LAYOUT)
+   ================================== */
+
+.project-detail-card {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 3rem;
+    padding: 40px 0;
+    margin-bottom: 30px; 
+    align-items: flex-start; 
+}
+
+@media (min-width: 992px) {
+    .project-detail-card {
+        grid-template-columns: 4fr 5fr; 
+        gap: 6rem;
+    }
+}
+
+/* --- Project Media (Left Column: Images) --- */
+.project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 25px; 
+    background: #e2e8f0; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
+
+.project-media .image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-media .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-media .image-container p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* --- Project Info (Right Column: Text) --- */
+.project-info-detail {
+    text-align: left;
+}
+
+.project-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #475569; 
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.project-info-detail h3 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    color: #1e293b;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #475569;
+}
+
+/* --- Project Tools (Tags) --- */
+.project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+}
+.tool-tag {
+    background: #bae6fd; 
+    color: #0c4a6e; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* --- Project Buttons --- */
+.project-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-project-primary {
+    background: #0d9488;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+.btn-project-primary:hover { background: #0a6b5e; }
+
+.btn-project-secondary {
+    border: 2px solid #0d9488;
+    color: #0d9488;
+    padding: 10px 24px; 
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+.btn-project-secondary:hover {
+    background: #0d9488;
+    color: white;
+}
+
+/* ==================================
+   PROJECTS KEY FEATURES SECTION
+   ================================== */
+.features-header {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 4rem; 
+    margin-bottom: 2rem;
+    color: #1e293b;
+    text-align: center; 
+    display: inline-block; 
+    padding-bottom: 5px;
+    border-bottom: 3px solid #0d9488;
+}
+
+.project-key-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-top: 20px;
+    justify-content: center; 
+    max-width: 900px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card {
+    background: white; 
+    border: 1px solid #e2e8f0; 
+    padding: 1.5rem; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(13, 148, 136, 0.2); 
+    border-color: #0d9488; 
+}
+
+.feature-icon {
+    font-size: 2.2rem; 
+    color: #0d9488; 
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-title {
+    font-size: 1.2rem; 
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.feature-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+}
+
+/* ==================================
+   ABOUT SECTION (TWO COLUMN LAYOUT - UNIFIED DARK BACKGROUND)
+   ================================== */
+
+.about-grid-two-col {
+    display: grid;
+    /* Default stacked layout for mobile */
+    grid-template-columns: 1fr; 
+    gap: 1px; /* Minimal gap for visual separation if needed, but not required with unified background */
+    max-width: 100%; /* Occupy full width of container-wider */
+    margin: 0 auto;
+    
+    /* UNIFIED DARK BACKGROUND */
+    background: #1e293b; 
+    color: white; 
+    
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15); 
+    border-radius: 12px;
+    overflow: hidden; 
+}
+
+@media (min-width: 769px) {
+    .about-grid-two-col {
+        /* Journey is wider than Toolkit */
+        grid-template-columns: 3fr 2fr; 
+    }
+}
+
+/* --- COLUMN 1: Project Journey (Adjusted for padding only) --- */
+.about-journey-box {
+    /* Removed background/color properties as they are inherited from parent */
+    padding: 2.5rem;
+    text-align: justify;
+    
+}
+
+.journey-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #0d9488; 
+    display: inline-block;
+    padding-bottom: 5px;
+    font-weight: 700;
+}
+
+.about-journey-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.about-journey-box p strong {
+    color: #ccfbf1; 
+}
+
+/* Button for the dark box (left column) */
+.btn-contact-dark {
+    background: white;
+    color: #1e293b;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s;
+    margin-top: 1rem;
+    display: inline-block;
+}
+.btn-contact-dark:hover {
+    background: #e2e8f0;
+}
+
+/* --- COLUMN 2: Toolkit Container (Adjusted for padding and text color) --- */
+.about-cacontainer {
+    /* Removed background property */
+    
+    padding: 2.5rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Space between Toolkit and Techstack sections */
+    border-left: 1px solid #2b3a50; /* Add a subtle divider line */
+}
+
+/* Styles for the individual sections inside the toolkit container */
+.toolkit-content-box,
+.techstack-section {
+    text-align: left; 
+}
+
+.toolkit-heading,
+.techstack-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: white; 
+    padding-top:45px;
+    
+    /* ADDED UNDERLINE STYLE */
+    border-bottom: 3px solid #0d9488;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.toolkit-divider {
+    /* Removed this as it's not needed with the unified background and gap */
+    display: none;
+}
+
+/* --------------------------------
+   TOOLKIT LIST CARDS (Vertical Stack)
+   -------------------------------- */
+.toolkit-list-cards {
+    list-style: none;
+    padding-right: 25px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toolkit-item {
+    background: #2b3a50; /* Slightly lighter dark grey for contrast */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.toolkit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(13, 148, 136, 0.2);
+}
+
+.toolkit-icon {
+    font-size: 1.5rem;
+    color: #0d9488;
+    flex-shrink: 0;
+    padding-top: 3px;
+}
+
+.toolkit-category {
+    font-weight: 700;
+    color: #ccfbf1; /* Lightened category text color */
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.about-toolkit-container p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #a1a1aa; /* Light gray text for readability */
+    margin: 0;
+}
+
+/* --------------------------------
+   TECHSTACK TAGS (Reused from project-tools)
+   -------------------------------- */
+.techstack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 0;
+    padding-bottom: 25px;
+}
+
+/* Ensure tool tags are visible against the dark background */
+.techstack-tags .tool-tag {
+    background: #52525b; /* Darker background for tag */
+    color: white; 
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+/* ==================================
+   CONTACT / FOOTER
+   ================================== */
+.contact-footer h2 { font-size:2.8rem; margin-bottom:1rem; }
+.contact-footer p { font-size:1.3rem; margin-bottom:2rem; opacity:0.9; }
+.contact-email { font-size:1.8rem; color:white; text-decoration:none; transition: text-decoration 0.3s; }
+.contact-email:hover { text-decoration:underline; }
+.social-links { margin-top: 1.5rem; margin-bottom: 2rem; }
+.social-links a { color:white; font-size:2.6rem; margin:0 1.2rem; transition: opacity 0.3s; }
+.social-links a:hover { opacity: 0.7; }
+.copyright { margin-top:3rem; opacity:0.7; font-size:0.95rem; }
+
+/* ==================================
+   RESPONSIVE DESIGN (Media Queries)
+   ================================== */
+@media (min-width: 769px) {
+    .hero-content {
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 4rem; 
+    }
+
+    .hero-text-content {
+        text-align: left; 
+    }
+
+    .hero h1 { font-size: 4.5rem; margin-bottom: 1.2rem; } 
+    .hero p { font-size: 1.8rem; margin-bottom: 3.5rem; } 
+
+    .hero-buttons {
+        justify-content: flex-start; 
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1.2rem; }
+    
+    /* Removed old .about-grid references */
+    
+    .hero-buttons { 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .btn-primary, .btn-secondary { 
+        width: 80%; 
+        max-width: 300px; 
+        text-align: center; 
+    }
+    
+    .section-title { font-size: 2.2rem; margin-bottom: 3rem; }
+    .hero, .contact-footer, .section { padding-top: 100px; padding-bottom: 80px; }
+    .hero { padding-top: 150px; } 
+}
